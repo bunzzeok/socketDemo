@@ -1,6 +1,11 @@
 # socketDemo
 
-How to execute
+node version : 20.9.0
+
+How to execute 
+
+ 
+
 1. 
 ```
 npm i 
