@@ -5,11 +5,11 @@
       @click="socket.connect"
       class="border rounded-2xl border-solid px-3 py-2 border-gray-400 hover:bg-blue-500 hover:text-white hover:border-blue-500"
     >
-      소켓 연결
+      Socket Connection
     </button>
 
     <div v-if="socketStatus" class="flex items-center">
-      보낼 데이터 :
+      Send Data Value :
       <input v-model="sendText" class="w-48 border border-solid ml-2" />
     </div>
 
@@ -18,7 +18,7 @@
       @click="socket.send"
       class="border rounded-2xl border-solid px-3 py-2 border-gray-400 hover:bg-green-500 hover:text-white hover:border-green-500"
     >
-      데이터 전송
+      Data send
     </button>
 
     <button
@@ -26,11 +26,11 @@
       @click="socket.close"
       class="border rounded-2xl border-solid px-3 py-2 border-gray-400 hover:bg-red-500 hover:text-white hover:border-red-500"
     >
-      소켓 연결 끊기
+      socket disconnection
     </button>
 
     <div class="flex items-center">
-      <span class="mr-2"> 연결 상태 : </span>
+      <span class="mr-2"> Connection Status : </span>
 
       <div v-if="loading">Loading...</div>
       <div v-else>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="w-full border-b border-solid border-gray-400">
-      <span class="font-bold text-3xl"> 에러 로그 </span>
+      <span class="font-bold text-3xl"> Error Logs </span>
       <div ref="refErrorlog" class="overflow-auto max-h-[200px] min-h-[200px]">
         <div v-for="(socketError, index) in socketErrorList" :key="index" class="border-b border-solid border-gray-400">
           {{ socketError }}
@@ -50,7 +50,7 @@
 
     <div class="flex w-full">
       <div class="w-[calc(50%)] border-r-4 border-dashed border-gray-400">
-        <span class="font-bold text-3xl"> 보낸 데이터 리스트 </span>
+        <span class="font-bold text-3xl"> Send Data List </span>
         <div ref="refSendData" class="overflow-auto w-full max-h-[500px] min-h-[500px]">
           <div v-for="(socketSendData, index) in socketSendDataList" :key="index" class="border-b border-solid border-gray-400">
             {{ socketSendData }}
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="w-[calc(50%)]">
-        <span ref="refGetData" class="font-bold text-3xl"> 받은 데이터 리스트 </span>
+        <span ref="refGetData" class="font-bold text-3xl"> get Data List </span>
         <div class="overflow-auto w-full max-h-[500px] min-h-[500px]">
           <div v-for="(socketGetData, index) in socketGetDataList" :key="index" class="border-b border-solid border-gray-400">
             {{ socketGetData }}
